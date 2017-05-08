@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Usuarios cadastrados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Senha</th>
+      <th>Opções</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.each do |usuarios| %>
+      <tr>
+        <td><%= usuarios.name %></td>
+        <td><%= usuarios.email %></td>
+        <td><%= usuarios.password_digest %></td>
+        <td><%= link_to 'Exibir', '#' %></td>
+        <td><%= link_to 'Editar', edit_user_path(usuarios) %></td>
+        <td><%= link_to 'Excluir', usuarios, method: :delete, data: { confirm: 'Deseja realmente exluir?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Cadastrar-se', new_user_path %>

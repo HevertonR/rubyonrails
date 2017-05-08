@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<p id="notice"><%= notice %></p>
+<!--LINHA ADICIONADA -->
+
+<h1> Informações de usuario </h1>
+
+<!--
+<p>
+  <strong>Nome:</strong>
+  <%= @user.name %>
+</p>
+ 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+-->
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <label> Avatar </label>
+        <%= gravatar_for @user %>
+      </h1>
+ 	<label> Nome </label>
+        <%= @user.name %>
+        <label> Email </label>
+        <%= @user.email %>
+    </section>
+  </aside>
+</div>
+
+<br />
+
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Excluir', user_path(@user), method: :delete, data: {confirm: 'Deseja realmente exluir?' } %> |
+<%= link_to 'Voltar', users_path %>
+

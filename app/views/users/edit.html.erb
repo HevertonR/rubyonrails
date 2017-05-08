@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<style>
+ #pagina{
+  margin-left: 43%;
+ }
+</style>
+
+<h1>Editar Usuario</h1>
+
+<div id="pagina">
+<%= render 'form', user: @user %>
+
+<%= link_to 'Exibir', @user %> |
+<%= link_to 'Voltar', users_path %> 
+</div>

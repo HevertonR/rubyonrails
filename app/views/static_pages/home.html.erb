@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+  <title> <%= full_title(yield(:title)) %> </title>
+</head>
+
+<body>
+<div class="center jumbotron">
+  <h1>Seja Bem Vindo</h1>
+  <p> Acesse a pagina do RailsTutorial <a href="http://www.railstutorial.org/book" target="_blank"> Clique aqui </a> </p>
+  <%= link_to "Login", login_path, class: "btn btn-lg btn-success" %>
+  <%= link_to "Cadastrar-se", 'users/new', class: "btn btn-lg btn-primary" %>
+</div>
+
+
+<!-- img alt="Logo rails" src="/assets/kitten.jpg" / -->
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+<!--
+<p>Caminho para a pagina app/views/static_pages/home.html.erb</p>
+-->
+</body>
+</html>
