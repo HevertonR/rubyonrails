@@ -4,7 +4,8 @@
 
 <h1>Usuarios cadastrados</h1>
 
-<table>
+<!--
+</table>
   <thead>
     <tr>
       <th>Nome</th>
@@ -16,19 +17,30 @@
   </thead>
 
   <tbody>
-    <% @user.each do |usuarios| %>
+    < @user.each do |usuarios| >
       <tr>
-        <td><%= usuarios.name %></td>
-        <td><%= usuarios.email %></td>
-        <td><%= usuarios.password_digest %></td>
-        <td><%= link_to 'Exibir', '#' %></td>
-        <td><%= link_to 'Editar', edit_user_path(usuarios) %></td>
-        <td><%= link_to 'Excluir', usuarios, method: :delete, data: { confirm: 'Deseja realmente exluir?' } %></td>
+        <td><= usuarios.name %></td>
+        <td><= usuarios.email %></td>
+        <td><= usuarios.password_digest %></td>
+        <td><= link_to 'Exibir', '#' %></td>
+        <td><= link_to 'Editar', edit_user_path(usuarios) %></td>
+        <td><= link_to 'Excluir', usuarios, method: :delete, data: { confirm: 'Deseja realmente exluir?' } %></td>
       </tr>
-    <% end %>
+    < end >
   </tbody>
 </table>
+-->
 
-<br>
+<ul class="users">
+  <% @user.each do |user| %>
+    <li>
+     <%= gravatar_for user, size: 50 %>
+      <%= link_to user.name, user %>
+     <!-- <= render @users > -->
+    </li>
+  <% end %>
+</ul>
+
+<!-- <= will_paginate > -->
 
 <%= link_to 'Cadastrar-se', new_user_path %>
