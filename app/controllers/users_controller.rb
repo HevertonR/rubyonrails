@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
  
-  before_action :logged_in_user, only: [:edit, :index, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :index, :update]
   before_action :correct_user, only: [:edit, :update]
   
+
   def show
     @user = User.find(params[:id])
   end
+
+ def correct_user
+ end
 
   def new
     @user = User.new
@@ -44,7 +48,6 @@ end
     log_in @user
     flash[:success] = "Seja bem vindo ao Sample App!"
     redirect_to @user
-      # Handle a successful save.
     else
       render 'new'
     end
