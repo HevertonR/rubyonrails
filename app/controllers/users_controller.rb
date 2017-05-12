@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
  
-  before_action :logged_in_user, only: [:edit, :index, :update]
+  before_action :logged_in_user, only: [:edit, :index, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
   
   def show
     @user = User.find(params[:id])
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def index
-   @user = User.paginate(page: params[:page])
+   @users = User.paginate(page: params[:page])
   end
 
  
@@ -34,7 +35,7 @@ end
   @user = User.find(params[:id])
   @user.destroy
   flash[:success] = "Usuario excluido com sucesso"
-  redirect_to @user
+  redirect_to users_url
  end 
 
  def create
@@ -60,5 +61,10 @@ end
         redirect_to login_url
       end
     end
+ 
+ def admin_user
+  redirect_to(root_url) unless current_user.admin?
+ end
+
 end
 
