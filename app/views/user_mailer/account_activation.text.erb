@@ -1,0 +1,7 @@
+Ola <%= @user.name %>
+
+Seja bem vindo. Estamos quase finalizando seu cadastro, para conclusão é necessario ativar sua conta.
+Para ativar sua conta, por favor acesse o link abaixo:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+

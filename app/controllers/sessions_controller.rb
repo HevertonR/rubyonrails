@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
   end
  
@@ -8,10 +9,10 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash.now[:danger] = 'Senha ou email incorreto, por favor tente novamente' # Not quite right!
+      flash.now[:danger] = 'Senha ou email incorreto, por favor tente novamente' # Not quite right!     
       render 'new'
     end
-  end
+end
 
   def destroy
    log_out

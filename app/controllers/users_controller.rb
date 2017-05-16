@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
  
-  before_action :logged_in_user, only: [:edit, :index, :update]
+  before_action :logged_in_user, only: [:edit, :index, :update, :delete]
   before_action :correct_user, only: [:edit, :update]
   
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 def update
   @user = User.find(params[:id])
   if @user.update_attributes(user_params)
-    flash[:success] = "Perfil atualizado"
+    flash[:success] = "Perfil atualizado com sucesso"
     redirect_to @user
    else
   render 'edit'
@@ -45,9 +45,12 @@ end
  def create
     @user = User.new(user_params)
     if @user.save
-    log_in @user
-    flash[:success] = "Seja bem vindo ao Sample App!"
-    redirect_to @user
+  # log_in @user
+  # flash[:success] = "Seja bem vindo ao Sample App!"
+  # redirect_to @user
+   UserMailer.account_activation(@user).deliver_now
+   flash[:info] = "Por favor, ative sua conta acessando o link enviado no seu e-mail"
+   redirect_to root_url
     else
       render 'new'
     end
