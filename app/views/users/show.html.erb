@@ -5,29 +5,24 @@
 
 <h1> Informações de usuario </h1>
 
-<!--
-<p>
-  <strong>Nome:</strong>
-  <%= @user.name %>
-</p>
- 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
--->
-
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
+    <aside class="col-md-5">
+      <section class="user_info">
       <h1>
-        <label> Avatar </label>
+        <label> Avatar </label> </h1>
         <%= gravatar_for @user %>
-      </h1>
  	<label> Nome </label>
         <%= @user.name %>
         <label> Email </label>
         <%= @user.email %>
+        <hr />
+        <h4> Informações da conta </h4>
+        <label> Ativado </label>
+	<%= @user.activated %>         
+        <label> Data de ativação </label>
+        <%=  @user.activated_at %>  
+        <label> Administrador </label>
+        <%= @user.admin %>
     </section>
   </aside>
 </div>

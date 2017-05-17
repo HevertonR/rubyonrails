@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 def update
   @user = User.find(params[:id])
   if @user.update_attributes(user_params)
+     @user.update_attributes(activated_at: Time.zone.now)
     flash[:success] = "Perfil atualizado com sucesso"
     redirect_to @user
    else
@@ -58,7 +59,7 @@ end
 
  private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :activated)
     end
 
  def logged_in_user
