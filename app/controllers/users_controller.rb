@@ -38,10 +38,15 @@ end
 
  def destroy
   @user = User.find(params[:id])
-  @user.destroy
-  flash[:success] = "Usuario excluido com sucesso"
-  redirect_to users_url
+  if current_user.admin?
+   @user.destroy
+   flash[:success] = "Usuario excluido com sucesso"
+   redirect_to users_url
+ else
+   flash[:danger] = "Desculpe somente usuario adminstradores podem deletar"
+   redirect_to users_url
  end 
+end
 
  def create
     @user = User.new(user_params)
