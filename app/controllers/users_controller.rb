@@ -43,7 +43,7 @@ end
    flash[:success] = "Usuario excluido com sucesso"
    redirect_to users_url
  else
-   flash[:danger] = "Desculpe somente usuario adminstradores podem deletar"
+   flash[:danger] = "Desculpe somente usuario administradores podem deletar"
    redirect_to users_url
  end 
 end
