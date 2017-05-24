@@ -1,12 +1,26 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      O cadastro contem contem <%= pluralize(@user.errors.count, "erros") %>.
+      O cadastro contem <%= pluralize(object.errors.count, "error") %>.
     </div>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
+<!--
+< if @user.errors.any? >
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      O cadastro contem contem <= pluralize(@user.errors.count, "erros") >.
+    </div>
+    <ul>
+    < @user.errors.full_messages.each do |msg| >
+      <li><= msg ></li>
+    < end >
+    </ul>
+  </div>
+< end > 
+-->
