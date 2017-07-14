@@ -11,6 +11,9 @@
       <h1>
         <label> Avatar </label> </h1>
         <%= gravatar_for @user %>
+        <section class="stats">
+         <%= render 'shared/stats' %>
+        </section>
  	<label> Nome </label>
         <%= @user.name %>
         <label> Email </label>
@@ -27,6 +30,7 @@
   </aside>
 
  <div class="col-md-5">
+     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
