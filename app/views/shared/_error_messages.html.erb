@@ -10,6 +10,8 @@
     </ul>
   </div>
 <% end %>
+
+<!--if object.errors.any? -->
 <!--
 < if @user.errors.any? >
   <div id="error_explanation">
@@ -17,7 +19,7 @@
       O cadastro contem contem <= pluralize(@user.errors.count, "erros") >.
     </div>
     <ul>
-    < @user.errors.full_messages.each do |msg| >
+    <= @user.errors.full_messages.each do |msg| >
       <li><= msg ></li>
     < end >
     </ul>

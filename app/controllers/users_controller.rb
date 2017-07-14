@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   def index
    @users = User.paginate(page: params[:page])
   end
-
  
 def update
   @user = User.find(params[:id])
